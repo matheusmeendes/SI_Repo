@@ -7,24 +7,37 @@
     <decisionTable id="DecisionTable_1r8qkzw" hitPolicy="FIRST">
       <input id="Input_1" label="Transação confirmada">
         <inputExpression id="InputExpression_1" typeRef="boolean">
-          <text></text>
+          <text>transacaoConfirmada</text>
         </inputExpression>
       </input>
-      <output id="Output_1" label="Atualizar saldo do caixa" typeRef="boolean" />
+      <input id="InputClause_03gc0x3" label="Tipo de transação">
+        <inputExpression id="LiteralExpression_01l2xkh" typeRef="string">
+          <text>tipoTransacao</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="Atualizar saldo do caixa" name="registrarTransacao" typeRef="boolean" />
       <rule id="DecisionRule_1eqmfxm">
+        <description>Registrar transação de entrada</description>
         <inputEntry id="UnaryTests_178boyc">
-          <text>true</text>
+          <text>transacaoConfirmada == true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gklb7t">
+          <text>tipoTransacao == "Entrada"</text>
         </inputEntry>
         <outputEntry id="LiteralExpression_0tkrk1v">
-          <text>true</text>
+          <text>registrarTransacao == true</text>
         </outputEntry>
       </rule>
       <rule id="DecisionRule_1ckuc6g">
+        <description>Não registrar transação</description>
         <inputEntry id="UnaryTests_0gslw5e">
-          <text>false</text>
+          <text>transacaoConfirmada == false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ht4xzk">
+          <text>tipoTransacao == "Entrada"</text>
         </inputEntry>
         <outputEntry id="LiteralExpression_0lrofm5">
-          <text>false</text>
+          <text>registrarTransacao == false</text>
         </outputEntry>
       </rule>
     </decisionTable>

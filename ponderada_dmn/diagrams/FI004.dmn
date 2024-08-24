@@ -7,26 +7,37 @@
     <decisionTable id="DecisionTable_0tk3r81">
       <input id="Input_1" label="Transação não confirmada">
         <inputExpression id="InputExpression_1" typeRef="boolean">
-          <text></text>
+          <text>transacaoConfirmada</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1ry8vh4" label="Tipo de Transação">
+        <inputExpression id="LiteralExpression_03leui0" typeRef="string">
+          <text>tipoTransacao</text>
         </inputExpression>
       </input>
       <output id="Output_1" label="Adicionar previsão ao caixa" typeRef="boolean" />
       <rule id="DecisionRule_0r8xtge">
-        <description></description>
+        <description>Adicionar previsão ao caixa</description>
         <inputEntry id="UnaryTests_0jy5suf">
-          <text>true</text>
+          <text>transacaoConfirmada == false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0axin1t">
+          <text>tipoTransacao == "Entrada"</text>
         </inputEntry>
         <outputEntry id="LiteralExpression_1vmmtfy">
-          <text>true</text>
+          <text>adicionarPrevisao == true</text>
         </outputEntry>
       </rule>
       <rule id="DecisionRule_14v7m0b">
-        <description></description>
+        <description>Não adicionar previsão</description>
         <inputEntry id="UnaryTests_0x79euj">
-          <text>false</text>
+          <text>transacaoConfirmada == true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1jqvacs">
+          <text>tipoTransacao == "Entrada"</text>
         </inputEntry>
         <outputEntry id="LiteralExpression_056wdgq">
-          <text>false</text>
+          <text>adicionarPrevisao == false</text>
         </outputEntry>
       </rule>
     </decisionTable>

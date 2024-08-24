@@ -7,24 +7,37 @@
     <decisionTable id="DecisionTable_02fo0s3">
       <input id="Input_1" label="Atualização do caixa com entrada confirmada">
         <inputExpression id="InputExpression_1" typeRef="boolean">
-          <text></text>
+          <text>saldoAtualizado</text>
         </inputExpression>
       </input>
-      <output id="Output_1" label="Notificar equipe de contabilidade" typeRef="boolean" />
+      <input id="InputClause_0t3l93c" label="Tipo de Transação">
+        <inputExpression id="LiteralExpression_0jkz9an" typeRef="string">
+          <text>tipoTransacao</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="Notificar equipe de contabilidade" name="notificarContabilidade" typeRef="boolean" />
       <rule id="DecisionRule_1o2gmsb">
+        <description>Notificar equipe contábil</description>
         <inputEntry id="UnaryTests_1a5gp21">
-          <text>true</text>
+          <text>saldoAtualizado == true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18no3dy">
+          <text>tipoTransacao == "Entrada"</text>
         </inputEntry>
         <outputEntry id="LiteralExpression_0cmfkpk">
-          <text>true</text>
+          <text>notificarContabilidade == true</text>
         </outputEntry>
       </rule>
       <rule id="DecisionRule_16yv4jo">
+        <description>Não notificar contabilidade</description>
         <inputEntry id="UnaryTests_05pkd69">
-          <text>false</text>
+          <text>saldoAtualizado == false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1asibtu">
+          <text>tipoTransacao == "Entrada"</text>
         </inputEntry>
         <outputEntry id="LiteralExpression_07djcve">
-          <text>false</text>
+          <text>notificarContabilidade == false</text>
         </outputEntry>
       </rule>
     </decisionTable>

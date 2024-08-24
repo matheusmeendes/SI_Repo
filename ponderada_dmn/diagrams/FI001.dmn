@@ -7,27 +7,28 @@
     <decisionTable id="DecisionTable_1iu2dox">
       <input id="Input_1" label="Transações realizadas" biodi:width="253">
         <inputExpression id="InputExpression_1" typeRef="boolean">
-          <text>
+          <text>transacoesRealizadas
+
 </text>
         </inputExpression>
       </input>
-      <output id="Output_1" label="Enviar Relatório" typeRef="boolean" biodi:width="192" />
+      <output id="Output_1" label="Enviar Relatório" name="enviarRelatorio" typeRef="boolean" biodi:width="192" />
       <rule id="DecisionRule_0714gzc">
         <description>Enviar o relatório</description>
         <inputEntry id="UnaryTests_0vi8z5t">
-          <text>true</text>
+          <text>transacoesRealizadas == true</text>
         </inputEntry>
         <outputEntry id="LiteralExpression_0tmxb5f">
-          <text>true</text>
+          <text>enviarRelatorio == true</text>
         </outputEntry>
       </rule>
       <rule id="DecisionRule_0dhowbr">
         <description>Não enviar relatório</description>
         <inputEntry id="UnaryTests_0qfi7l3">
-          <text>false</text>
+          <text>transacoesRealizadas == false</text>
         </inputEntry>
         <outputEntry id="LiteralExpression_1icuh3u">
-          <text>false</text>
+          <text>enviarRelatorio == false</text>
         </outputEntry>
       </rule>
     </decisionTable>

@@ -7,24 +7,37 @@
     <decisionTable id="DecisionTable_11x5k3f" hitPolicy="FIRST">
       <input id="Input_1" label="Orçamento disponível">
         <inputExpression id="InputExpression_1" typeRef="boolean">
-          <text></text>
+          <text>orcamentoDisponivel</text>
         </inputExpression>
       </input>
-      <output id="Output_1" label="Liberar saída de caixa" typeRef="string" />
+      <input id="InputClause_18pvxp4" label="Tipo de Transação">
+        <inputExpression id="LiteralExpression_0j2373k" typeRef="string">
+          <text>tipoTransacao</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="Liberar saída de caixa" name="liberarSaidaCaixa " typeRef="boolean" />
       <rule id="DecisionRule_15cw5ur">
+        <description>Liberar saída de caixa</description>
         <inputEntry id="UnaryTests_17yu4ke">
-          <text>true</text>
+          <text>orcamentoDisponivel == true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gt2rka">
+          <text>tipoTransacao == "Saída"</text>
         </inputEntry>
         <outputEntry id="LiteralExpression_0unyobp">
-          <text>true</text>
+          <text>liberarSaidaCaixa == true</text>
         </outputEntry>
       </rule>
       <rule id="DecisionRule_1fl0397">
+        <description>Não liberar saída de caixa</description>
         <inputEntry id="UnaryTests_0pdnxyb">
-          <text>false</text>
+          <text>orcamentoDisponivel == false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ul1quu">
+          <text>tipoTransacao == "Saída"</text>
         </inputEntry>
         <outputEntry id="LiteralExpression_1pb0yl4">
-          <text>false</text>
+          <text>liberarSaidaCaixa == false</text>
         </outputEntry>
       </rule>
     </decisionTable>

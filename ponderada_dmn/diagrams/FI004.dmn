@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_0bhe87d" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.26.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.5.0">
+  <decision id="Decision_1w3vy9j" name="Decisão FI004: Registro de previsão de entrada">
+    <informationRequirement id="InformationRequirement_13sfk8x">
+      <requiredInput href="#InputData_1dytol4" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0tk3r81">
+      <input id="Input_1" label="Transação não confirmada">
+        <inputExpression id="InputExpression_1" typeRef="boolean">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="Adicionar previsão ao caixa" typeRef="boolean" />
+      <rule id="DecisionRule_0r8xtge">
+        <description></description>
+        <inputEntry id="UnaryTests_0jy5suf">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1vmmtfy">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_14v7m0b">
+        <description></description>
+        <inputEntry id="UnaryTests_0x79euj">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_056wdgq">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="InputData_1dytol4" name="Transação não confirmada" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_1w3vy9j">
+        <dc:Bounds height="80" width="180" x="430" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_15909o3" dmnElementRef="InputData_1dytol4">
+        <dc:Bounds height="45" width="125" x="178" y="98" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1l4nn4j" dmnElementRef="InformationRequirement_13sfk8x">
+        <di:waypoint x="303" y="121" />
+        <di:waypoint x="410" y="120" />
+        <di:waypoint x="430" y="120" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

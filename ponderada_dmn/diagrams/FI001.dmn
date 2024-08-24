@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_0y4ma5k" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.26.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.5.0">
+  <decision id="Decision_1trol2n" name="Decisão FI001 : Relatório Financeiro">
+    <informationRequirement id="InformationRequirement_14cxdps">
+      <requiredInput href="#InputData_0nyuk90" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1iu2dox">
+      <input id="Input_1" label="Transações realizadas" biodi:width="253">
+        <inputExpression id="InputExpression_1" typeRef="boolean">
+          <text>
+</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="Enviar Relatório" typeRef="boolean" biodi:width="192" />
+      <rule id="DecisionRule_0714gzc">
+        <description>Enviar o relatório</description>
+        <inputEntry id="UnaryTests_0vi8z5t">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0tmxb5f">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0dhowbr">
+        <description>Não enviar relatório</description>
+        <inputEntry id="UnaryTests_0qfi7l3">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1icuh3u">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="InputData_0nyuk90" name="Transações realizadas" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_1trol2n">
+        <dc:Bounds height="80" width="180" x="390" y="210" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1cdzllx" dmnElementRef="InputData_0nyuk90">
+        <dc:Bounds height="45" width="125" x="158" y="228" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0o5dg21" dmnElementRef="InformationRequirement_14cxdps">
+        <di:waypoint x="283" y="251" />
+        <di:waypoint x="370" y="250" />
+        <di:waypoint x="390" y="250" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

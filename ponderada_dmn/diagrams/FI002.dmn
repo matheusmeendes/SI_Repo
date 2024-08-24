@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_0wh219v" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.26.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.5.0">
+  <decision id="Decision_01giw32" name="Decisão FI002: Verificação de orçamento para saída de caixa">
+    <informationRequirement id="InformationRequirement_1mg7t2f">
+      <requiredInput href="#InputData_1oyj85m" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_11x5k3f" hitPolicy="FIRST">
+      <input id="Input_1" label="Orçamento disponível">
+        <inputExpression id="InputExpression_1" typeRef="boolean">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="Liberar saída de caixa" typeRef="string" />
+      <rule id="DecisionRule_15cw5ur">
+        <inputEntry id="UnaryTests_17yu4ke">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0unyobp">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1fl0397">
+        <inputEntry id="UnaryTests_0pdnxyb">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1pb0yl4">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="InputData_1oyj85m" name="Orçamento disponível" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_01giw32">
+        <dc:Bounds height="80" width="180" x="430" y="100" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1cq3jko" dmnElementRef="InputData_1oyj85m">
+        <dc:Bounds height="45" width="125" x="158" y="118" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0e2hm3r" dmnElementRef="InformationRequirement_1mg7t2f">
+        <di:waypoint x="283" y="141" />
+        <di:waypoint x="410" y="140" />
+        <di:waypoint x="430" y="140" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

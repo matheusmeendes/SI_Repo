@@ -20,6 +20,50 @@ O diagrama entidade-relacional a seguir ilustra como as entidades estão interli
 <sup>Fonte: Autoria Própria</sup>
 </div>
 
+#### Explicação dos Modelos
+
+**Relação OCRD e CRD1:**
+
+**Entidades:**
+
+**OCRD:** Representa a tabela principal, que provavelmente contém os dados gerais do fornecedor ou cliente (ex.: código, nome, tipo).
+**CRD1:** É uma tabela associada que armazena os endereços relacionados ao fornecedor/cliente da tabela OCRD.
+
+**Relação:** O relacionamento entre as duas entidades é do tipo 1 para N (um para muitos), representado pela multiplicidade (1, N) ao lado da entidade CRD1. Isso significa que uma única entidade em OCRD pode estar associada a múltiplos endereços em CRD1, mas cada endereço em CRD1 só pode estar relacionado a um único registro em OCRD.
+
+**Campo de Ligação:** O relacionamento entre essas duas tabelas ocorre pelo campo CardCode em OCRD, que também está presente em CRD1 como chave estrangeira. Além disso, um campo ID foi adicionado na tabela CRD1 para melhor identificação de registros.
+
+**Relação OCRD e CRD7:**
+
+**Entidades:**
+
+**OCRD:** Tabela principal com dados dos fornecedores/clientes.
+**CRD7:** Tabela que armazena informações fiscais, como CNAE ou identificações de impostos (ex.: CNPJ ou CPF).
+
+**Relação:** Assim como a relação anterior, esta também é do tipo 1 para N, o que significa que um fornecedor/cliente pode ter várias informações fiscais associadas. No entanto, cada registro em CRD7 só está associado a um único fornecedor/cliente.
+
+**Campo de Ligação:** A ligação entre OCRD e CRD7 ocorre pelo campo CardCode, que é a chave estrangeira em CRD7. Um campo ID também foi adicionado para melhor identificação em CRD7.
+
+**Relação OCRD e OCRB:**
+
+**Entidades:**
+
+**OCRD:** Tabela principal com os dados dos fornecedores/clientes.
+**OCRB:** Tabela que armazena informações bancárias dos fornecedores/clientes (ex.: contas bancárias, agências).
+
+**Relação:** A relação é novamente do tipo 1 para N, onde um fornecedor/cliente em OCRD pode ter múltiplas contas bancárias associadas em OCRB, mas cada registro bancário em OCRB está associado a apenas um fornecedor/cliente.
+
+**Campo de Ligação:** O campo CardCode é a chave estrangeira que liga as duas tabelas, e a tabela OCRB também possui um campo ID para identificação única de cada registro bancário.
+
+#### Resumo das Relações
+
+- OCRD é a tabela principal que armazena os dados de fornecedores/clientes.
+- CRD1 armazena os endereços relacionados aos fornecedores/clientes.
+- CRD7 armazena os dados fiscais (CNAE, CNPJ/CPF) dos fornecedores/clientes.
+- OCRB armazena as informações bancárias dos fornecedores/clientes.
+
+Cada uma dessas tabelas auxiliares (CRD1, CRD7, OCRB) tem um relacionamento do tipo 1 com OCRD, e o campo CardCode é a chave que vincula essas tabelas auxiliares à tabela principal OCRD.
+
 ### Tabelas
 
 A imagem a seguir ilustra as tabelas desenvolvidas no SQL toad mostrando a relação entre elas.
